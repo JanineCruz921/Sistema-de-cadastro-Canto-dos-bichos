@@ -1,0 +1,159 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0%;
+    flex-direction: column;
+}
+
+#menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    width: 100%;
+    background-color: rgb(0, 36, 27);
+    text-align: center;
+}
+
+#imgLogo {
+    height: 90px;
+}
+
+#iconeMenu{
+   height: 45px;
+   margin-right: 12px;
+}
+
+#menu h1{
+    color: white;
+}
+
+#paginaIntroducao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(181, 255, 225);
+    height: 525px;
+    width: 100%;
+}
+
+#divIntroducao {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    background-color: rgb(0, 82, 73);
+    width: 900px;
+    height: 470px;
+}
+
+#paginaIntroducao img {
+    height: 450px;
+}
+
+#divBotoesIntrocucao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+#paginaIntroducao button {
+    width: 200px;
+    height: 50px;
+    margin-right: 5px;
+    border-radius: 8px;
+    border-style: none;
+    background-color: rgb(78, 135, 140);
+    color: rgb(255, 255, 255);
+    font-weight: 900;
+}
+
+#paginaIntroducao h4 {
+    color: white;
+    margin-top: -70px;
+}
+
+#paginaNovoCadastro {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(181, 255, 225);
+    height: 525px;
+    width: 100%;
+}
+
+#paginaNovoCadastro h2 {
+    color: white;
+}
+
+.dadosPet {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.dadosDono {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#divInputs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    border-radius: 5px;
+    background-color: rgb(0, 82, 73);
+    ;
+    height: 400px;
+    width: 900px;
+}
+
+#paginaNovoCadastro input {
+    width: 400px;
+    height: 35px;
+    margin-top: 5px;
+    margin-right: 10px;
+    border-radius: 8px;
+    border-style: none;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    font-weight: 900;
+    text-align: center;
+}
+
+#divBotoesCadastro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 5px;
+}
+
+#paginaNovoCadastro button {
+    width: 200px;
+    height: 35px;
+    margin-right: 5px;
+    border-radius: 8px;
+    border-style: none;
+    background-color: rgb(78, 135, 140);
+    color: rgb(255, 255, 255);
+    font-weight: 900;
+}
+
+#paginaCadastros {
+    display: none;
+    justify-content: start;
+    align-items: start;
+    background-color: rgb(181, 255, 225);
+    height: 525px;
+    width: 100%;
+}

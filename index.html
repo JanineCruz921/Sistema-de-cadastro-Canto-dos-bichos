@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Shop Espaco dos Bichos</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <section id="menu">
+        <img id="imgLogo" src="./assets/img/Logotipo_PetShop_veterinária_.png">
+        <h1>Sistema Interno</h1>
+        <img id="iconeMenu" src="./assets/ícones/icone_menu.jpg">
+    </section>
+
+    <section id="paginaIntroducao">
+        <div id="divIntroducao">
+            <img src="./assets/img/Logotipo_PetShop_veterinária_.png">
+            <h4>Cadastro de novos Pets, Pets cadastrados, Informações dos donos.
+                prontuários, agendamento de novos atendimentos, <br> controle de agenda, estoque e financeiro.
+            </h4>
+            <div id="divBotoesIntroducao">
+                <Button id="btnNovoCadastro" onclick="trocaDePagina1()">Cadastrar Novo PET</Button>
+                <Button id="btnCadastros" onclick="trocaDePagina2()">PETS Cadastrados</Button>
+            </div>
+        </div>
+    </section>
+
+    <section id="paginaNovoCadastro">
+        <div id="divInputs">
+            <div class="dadosPet">
+                <h2>Informações Pet</h2>
+                <input id="nomePet" placeholder="Nome do Pet">
+                <input id="especiePet" placeholder="Espécie">
+                <input id="racaPet" placeholder="Raça">
+                <input id="idadePet" placeholder="Idade">
+                <input id="pesoPet" placeholder="Peso">
+                <input id="alturaPet" placeholder="Altura">
+            </div>
+            <div class="dadosDono">
+                <h2>Informações Dono</h2>
+                <input id="nomeDono" placeholder="Nome completo do dono">
+                <input id="enderecoDono" placeholder="Endereço">
+                <input id="cepDono" placeholder="CEP">
+                <input id="contatoDono" placeholder="Contato">
+                <input id="emailDono" placeholder="Email">
+                <input id="cpfDono" placeholder="CPF">
+            </div>
+        </div>
+        <div id="divBotoesCadastro">
+            <button id="btnAdicionar" type="submit" onclick="adicionarPet(), exibirPet()">Adicionar</button>
+            <button id="btnVerCadastros" onclick="trocaDePagina2()">Ver pets cadastrados</button>
+        </div>
+    </section>
+
+    <section id="paginaCadastros">
+        <table id="tableCadastros">
+            <tr>
+                <td>nome</td>
+                <td>especie</td>
+                <td>raça</td>
+                <td>idade</td>
+                <td>peso</td>
+                <td>altura</td>
+            </tr>
+        </table>
+    </section>
+
+
+    <script src="./paginaCadastro.js"></script>
+</body>
+
+</html>
