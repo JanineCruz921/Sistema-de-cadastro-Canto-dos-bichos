@@ -50,21 +50,22 @@
             </div>
         </div>
         <div id="divBotoesCadastro">
-            <button id="btnAdicionar" type="submit" onclick="adicionarPet(), exibirPet()">Adicionar</button>
+            <button id="btnAdicionar" onclick= "adicionarPet(); adicionarDono(); exibirPet();" >Adicionar</button>
             <button id="btnVerCadastros" onclick="trocaDePagina2()">Ver pets cadastrados</button>
         </div>
     </section>
 
     <section id="paginaCadastros">
         <table id="tableCadastros">
-            <tr>
-                <td>nome</td>
-                <td>especie</td>
-                <td>raça</td>
-                <td>idade</td>
-                <td>peso</td>
-                <td>altura</td>
-            </tr>
+            <thead>
+                <th>nome</th>
+                <th>especie</th>
+                <th>raça</th>
+                <th>idade</th>
+                <th>peso</th>
+                <th>altura</th>
+            </thead>
+            <tbody id ="tBody"></tbody>
         </table>
     </section>
 
