@@ -19,11 +19,10 @@
         <div id="divIntroducao">
             <img src="./assets/img/Logotipo_PetShop_veterinária_.png">
             <h4>Cadastro de novos Pets, Pets cadastrados, Informações dos donos.
-                prontuários, agendamento de novos atendimentos, <br> controle de agenda, estoque e financeiro.
             </h4>
             <div id="divBotoesIntroducao">
                 <Button id="btnNovoCadastro" onclick="trocaDePagina1()">Cadastrar Novo PET</Button>
-                <Button id="btnCadastros" onclick="trocaDePagina2()">PETS Cadastrados</Button>
+                <Button id="btnCadastros" onclick="trocaDePagina2(); exibirPet()">PETS Cadastrados</Button>
             </div>
         </div>
     </section>
@@ -32,7 +31,7 @@
         <div id="divInputs">
             <div class="dadosPet">
                 <h2>Informações Pet</h2>
-                <input id="nomePet" placeholder="Nome do Pet">
+                <input type="text"   id="nomePet" placeholder="Nome do Pet">
                 <input id="especiePet" placeholder="Espécie">
                 <input id="racaPet" placeholder="Raça">
                 <input id="idadePet" placeholder="Idade">
@@ -49,24 +48,28 @@
                 <input id="cpfDono" placeholder="CPF">
             </div>
         </div>
-        <div id="divBotoesCadastro">
-            <button id="btnAdicionar" onclick= "adicionarPet(); adicionarDono(); exibirPet();" >Adicionar</button>
-            <button id="btnVerCadastros" onclick="trocaDePagina2()">Ver pets cadastrados</button>
+        <div class="divBotoesCadastro">
+            <button id="btnAdicionar" onclick="adicionarPet(); adicionarDono();">Salvar</button>
+            <button id="btnVerCadastros" onclick="trocaDePagina2(); exibirPet()">Ver pets cadastrados</button>
         </div>
     </section>
 
     <section id="paginaCadastros">
         <table id="tableCadastros">
             <thead>
-                <th>nome</th>
-                <th>especie</th>
-                <th>raça</th>
-                <th>idade</th>
-                <th>peso</th>
-                <th>altura</th>
+                <th>Nome</th>
+                <th>Especie</th>
+                <th>Raça</th>
+                <th>Idade</th>
+                <th>Peso</th>
+                <th>Altura</th>
             </thead>
-            <tbody id ="tBody"></tbody>
+            <tbody id="tBody"></tbody>
         </table>
+        <div class="divDadosDono">
+            <span id="popUpDono">
+            </span>
+        </div>
     </section>
 
 

@@ -1,14 +1,10 @@
-//ainda é preciso resolver a problemática de exibir os dados do dono de um respectivo cachorro separada dos
-// dados dele, de modo que as mesmas só apareçam ao cliclar um botão. Ainda é preciso trabalhar a estrutura 
-//html dessa parte do projeto.
-
-
-const pets = [];
-const donos = [];
+var pets = [];
+var donos = [];
 
 const paginaIntroducao = document.querySelector("#paginaIntroducao")
 const paginaNovoCadastro = document.querySelector("#paginaNovoCadastro")
 const paginaCadastros = document.querySelector("#paginaCadastros")
+
 
 var btnNovoCadastro = document.querySelector("#btnNovoCadastro")
 var btnCadastros = document.querySelector("#btnCadastros")
@@ -25,8 +21,11 @@ function trocaDePagina2() {
     paginaCadastros.style.display = "flex"
 }
 
+
+
 class Pet {
-    constructor(nomePet, especie, raca, idade, peso, altura) {
+    constructor(id, nomePet, especie, raca, idade, peso, altura) {
+        this.id = id;
         this.nomePet = nomePet
         this.especie = especie;
         this.raca = raca;
@@ -36,38 +35,45 @@ class Pet {
     }
 }
 
+
 function adicionarPet() {
-    //essa parte do código tenta solucionar a problemática de adicionar 
-    //os novos dados no array e em um banco de dados local para uso posterior
-    var nomePet =    document.querySelector("#nomePet").value
+    if (localStorage.petsArr) {
+        pets = JSON.parse(localStorage.getItem(`petsArr`));
+    }
+    var id = pets.length + 1;
+    var nomePet = document.querySelector("#nomePet").value
     var especie = document.querySelector("#especiePet").value;
     var raca = document.querySelector("#racaPet").value;
     var idade = document.querySelector("#idadePet").value;
     var peso = document.querySelector("#pesoPet").value;
     var altura = document.querySelector("#alturaPet").value;
-    let novoPet = new Pet(nomePet, especie, raca, idade, peso, altura);
+    let novoPet = new Pet(id, nomePet, especie, raca, idade, peso, altura);
     pets.push(novoPet)
+
+    document.querySelector("#nomePet").value = "";
+    document.querySelector("#especiePet").value = "";
+    document.querySelector("#racaPet").value = "";
+    document.querySelector("#idadePet").value = "";
+    document.querySelector("#pesoPet").value = "";
+    document.querySelector("#alturaPet").value = "";
+
     console.log(pets)
 
-    if (localStorage.petsArr) {
-   // pets = JSON.parse(localStorage.getItem(`petsArr`))
-    }
-    localStorage.petsArr = JSON.stringify(pets)
+    localStorage.petsArr = JSON.stringify(pets);
 }
 
-function exibirPet() {
-    //Essa parte do código tenta:
-    // percorrer o banco de dados e exibir os dados armazenados
-    //criar uma nova celula na tabela para adicionar o novo dado nela
-    //criar botões referentes ao novo dado adicionado no final da nova celula
-    //pra fazer essa parte do código assita o vídeo de adicionar dados de um array numa tabela
+//Essa parte do código tenta:
+// percorrer o banco de dados e exibir os dados armazenados
+//criar uma nova celula na tabela para adicionar o novo dado nela
+//criar botões referentes ao novo dado adicionado no final da nova celula
+//pra fazer essa parte do código assita o vídeo de adicionar dados de um array numa tabela
 
+function exibirPet() {
     if (localStorage.petsArr) {
-        var arr = JSON.parse(localStorage.getItem(`petsArr`));
+        pets = JSON.parse(localStorage.getItem(`petsArr`));
     }
     for (let i = 0; i < pets.length; i++) {
         let tBody = document.querySelector("#tBody")
-        tBody.innerText = "";
         let tr = tBody.insertRow();
         let TdNome = tr.insertCell();
         let TdEspecie = tr.insertCell();
@@ -75,31 +81,47 @@ function exibirPet() {
         let TdIdade = tr.insertCell();
         let TdPeso = tr.insertCell();
         let TdAltura = tr.insertCell();
+        let Td_btns = tr.insertCell();
 
-        TdNome.innerText = arr [i].nomePet;
-        TdEspecie.innerText = arr [i].especie;
-        TdRaca.innerText = arr [i].raca;
-        TdIdade.innerText = arr [i].idade;
-        TdPeso.innerText = arr [i].peso;
-        TdAltura.innerText = arr [i].altura;
+        TdNome.innerText = pets[i].nomePet;
+        TdEspecie.innerText = pets[i].especie;
+        TdRaca.innerText = pets[i].raca;
+        TdIdade.innerText = pets[i].idade;
+        TdPeso.innerText = pets[i].peso;
+        TdAltura.innerText = pets[i].altura;
 
         let novoBotaoDono = document.createElement("button");
-        let Td_btnDono = tr.insertCell();
         novoBotaoDono.innerText = "Dados do Dono"
-        Td_btnDono.append(novoBotaoDono)
+        novoBotaoDono.addEventListener("click", exibirDono())
+        Td_btns.append(novoBotaoDono)
 
-        let novoBotaoEditar = document.createElement("button");
-        let Td_btnEditar = tr.insertCell();
-        novoBotaoEditar.innerText = "Editar"
-        Td_btnEditar.append(novoBotaoEditar)
+        let novaImgEditar = document.createElement("img");
+        novaImgEditar.src = "./assets/ícones/icone_edicao.png"
+        novaImgEditar.setAttribute("onclick", "editar("+pets[i].id+")")
+        Td_btns.append(novaImgEditar)
 
-        let novoBotaoExcluir = document.createElement("button");
-        let Td_btnExcluir = tr.insertCell();
-        novoBotaoExcluir.innerHTML = "Excluir"
-        Td_btnExcluir.append(novoBotaoExcluir);
+        let novaImgExcluir = document.createElement("img");
+        novaImgExcluir.src = "./assets/ícones/icone_Exclusao.png";
+        novaImgExcluir.setAttribute("onclick", "deletar("+pets[i].id+");")
+        Td_btns.append(novaImgExcluir);
     }
+    
 }
 
+function deletar(id) {
+    //alert('deletando id '+ id)
+    for(let i= 0; i< pets.length; i++){
+        if(pets[i].id == id){
+            pets.splice(i, 1);
+            tBody.deleteRow(i);
+            localStorage.removeItem([i])
+        }
+        localStorage.petsArr = JSON.stringify(pets);
+    }
+}
+function editar() {
+    alert("editando")
+}
 
 class Dono {
     constructor(nomeDono, endereco, cep, contato, email, cpf) {
@@ -116,7 +138,7 @@ function adicionarDono() {
     var nomeDono = document.querySelector("#nomeDono").value
     var endereco = document.querySelector("#enderecoDono").value
     var cep = document.querySelector("#cepDono").value
-    var contato= document.querySelector("#contatoDono").value
+    var contato = document.querySelector("#contatoDono").value
     var email = document.querySelector("#emailDono").value
     var cpf = document.querySelector("#cpfDono").value
     let novoDono = new Dono(nomeDono, endereco, cep, contato, email, cpf);
@@ -124,7 +146,9 @@ function adicionarDono() {
     console.log(donos)
 }
 
-
-
+function exibirDono() {
+    var PopUpDono = document.querySelector(".divDadosDono")
+    PopUpDono.style.display = "flex"
+}
 
 
