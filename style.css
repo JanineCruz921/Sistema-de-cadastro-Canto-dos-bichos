@@ -20,12 +20,12 @@ body {
     height: 90px;
 }
 
-#iconeMenu{
-   height: 45px;
-   margin-right: 12px;
+#iconeMenu {
+    height: 45px;
+    margin-right: 12px;
 }
 
-#menu h1{
+#menu h1 {
     color: white;
 }
 
@@ -99,13 +99,6 @@ body {
     flex-direction: column;
 }
 
-.dadosDono {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
 #divInputs {
     display: flex;
     justify-content: center;
@@ -114,7 +107,7 @@ body {
     border-radius: 5px;
     background-color: rgb(0, 82, 73);
     ;
-    height: 400px;
+    height: 450px;
     width: 900px;
 }
 
@@ -159,8 +152,9 @@ body {
     width: 100%;
 }
 
-table{
-    background-color: aqua;
+table {
+    background-color: rgb(0, 36, 27);
+    color: white;
     height: 13%;
     width: 100%;
     text-align: center;
@@ -168,41 +162,33 @@ table{
     font-weight: 900;
     flex-wrap: nowrap;
 }
-thead{
+
+thead {
     font-size: 19px;
 }
-tbody{
+
+tbody {
     font-size: 15px;
+    background-color: rgb(181, 255, 225);
 }
 
-#paginaCadastros button{
-    width: 75px;
-    height: 40px;
-    margin-right: 5px;
-    margin-top: 10px;
-    border-radius: 8px;
-    border-style: none;
-    background-color: rgb(8, 182, 92);
-    color: rgb(255, 255, 255);
-    font-weight: 900;
-    font-size: 10px;
-}
-
-#paginaCadastros img{
+#paginaCadastros img {
     height: 40px;
     width: 40px;
     margin-left: 2px;
 }
 
-.divDadosDono{
-    display: none;
-}
-
-span{
-    position: absolute;
-}
-
-td{
+td {
     width: 180px;
     flex-wrap: wrap;
+}
+
+#paginaIntroducao button:hover {
+    background-color: rgb(0, 36, 27);
+    color: aliceblue;
+}
+
+#paginaNovoCadastro button:hover {
+    background-color: rgb(0, 36, 27);
+    color: aliceblue;
 }

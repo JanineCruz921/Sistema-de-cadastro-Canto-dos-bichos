@@ -18,7 +18,7 @@
     <section id="paginaIntroducao">
         <div id="divIntroducao">
             <img src="./assets/img/Logotipo_PetShop_veterinária_.png">
-            <h4>Cadastro de novos Pets, Pets cadastrados, Informações dos donos.
+            <h4>Cadastro de novos Pets, Pets cadastrados.
             </h4>
             <div id="divBotoesIntroducao">
                 <Button id="btnNovoCadastro" onclick="trocaDePagina1()">Cadastrar Novo PET</Button>
@@ -37,19 +37,12 @@
                 <input id="idadePet" placeholder="Idade">
                 <input id="pesoPet" placeholder="Peso">
                 <input id="alturaPet" placeholder="Altura">
-            </div>
-            <div class="dadosDono">
-                <h2>Informações Dono</h2>
-                <input id="nomeDono" placeholder="Nome completo do dono">
-                <input id="enderecoDono" placeholder="Endereço">
-                <input id="cepDono" placeholder="CEP">
-                <input id="contatoDono" placeholder="Contato">
-                <input id="emailDono" placeholder="Email">
-                <input id="cpfDono" placeholder="CPF">
+                <input id="nomeDono" placeholder="Nome do Dono">
+                <input id="contatoDono" placeholder="Contato do Dono">
             </div>
         </div>
         <div class="divBotoesCadastro">
-            <button id="btnAdicionar" onclick="adicionarPet(); adicionarDono();">Salvar</button>
+            <button id="btnAdicionar" onclick="adicionarPet();">Salvar</button>
             <button id="btnVerCadastros" onclick="trocaDePagina2(); exibirPet()">Ver pets cadastrados</button>
         </div>
     </section>
@@ -63,16 +56,12 @@
                 <th>Idade</th>
                 <th>Peso</th>
                 <th>Altura</th>
+                <th>Nome do Dono</th>
+                <th>Contato do dono</th>
             </thead>
             <tbody id="tBody"></tbody>
         </table>
-        <div class="divDadosDono">
-            <span id="popUpDono">
-            </span>
-        </div>
     </section>
-
-
     <script src="./paginaCadastro.js"></script>
 </body>
 
